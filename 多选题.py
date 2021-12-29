@@ -15,8 +15,16 @@ fdf1 = pd.DataFrame()
 fdf2 = pd.DataFrame()
 fdf3 = pd.DataFrame()
 
-file_name1 = filedialog.askopenfilename()
-df = pd.read_excel(file_name1)
+file_type_check = str(input("请输入文件格式（Excel/CSV): "))
+
+if str(file_type_check) == "Excel" or str(file_type_check) == "excel":
+    print ("1",file_type_check)
+    file_name1 = filedialog.askopenfilename()
+    df = pd.read_excel(file_name1).fillna(0)
+if str(file_type_check) == 'CSV' or str(file_type_check) == 'csv':
+    print ('2',file_type_check)
+    file_name1 = filedialog.askopenfilename()
+    df = pd.read_csv(file_name1).fillna(0)
 
 while run_time != 0:
     run_time = int(input("是否执行多选统计？(0.不执行，1.执行) "))
