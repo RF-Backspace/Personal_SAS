@@ -8,8 +8,11 @@ Created on Mon Dec 27 15:14:43 2021
 import datetime
 import pandas as pd
 import openpyxl
+import tkinter as tk
+from tkinter import filedialog
 
-origin_dataframe = pd.read_excel('C:\\Users\\xiaobin.ma\\Downloads\\ET5匹配数据结果.xlsx').fillna(0)
+file_name1 = filedialog.askopenfilename()
+origin_dataframe = pd.read_excel(file_name1).fillna(0)
 #修改值 - 设置区间段节点/设置区间段标注
 age_bins = [-1,20,25,30,35,40,45,50,55,60,150]
 age_labels = ['小于20岁','21岁-25岁', '26岁-30岁', '31岁-35岁', '36岁-40岁','41岁-45岁','46岁-50岁','51岁-55岁','56岁-60岁','大于60岁']
