@@ -11,8 +11,16 @@ import openpyxl
 import tkinter as tk
 from tkinter import filedialog
 
-file_name1 = filedialog.askopenfilename()
-origin_dataframe = pd.read_excel(file_name1).fillna(0)
+file_type_check = str(input("请输入文件格式（Excel/CSV): "))
+
+if str(file_type_check) == "Excel" or str(file_type_check) == "excel":
+    print ("1",file_type_check)
+    file_name1 = filedialog.askopenfilename()
+    origin_dataframe = pd.read_excel(file_name1).fillna(0)
+if str(file_type_check) == 'CSV' or str(file_type_check) == 'csv':
+    print ('2',file_type_check)
+    file_name1 = filedialog.askopenfilename()
+    origin_dataframe = pd.read_csv(file_name1).fillna(0)
 #修改值 - 设置区间段节点/设置区间段标注
 age_bins = [-1,20,25,30,35,40,45,50,55,60,150]
 age_labels = ['小于20岁','21岁-25岁', '26岁-30岁', '31岁-35岁', '36岁-40岁','41岁-45岁','46岁-50岁','51岁-55岁','56岁-60岁','大于60岁']
